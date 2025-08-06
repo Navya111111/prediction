@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Prediction</title>
+</head>
+<body>
+    <h2>Predict Units Sold Next Week</h2>
+    <form action="/predict" method="post">
+        <label>Product Category:</label>
+        <input type="text" name="product_category" required><br><br>
+
+        <label>Store Location:</label>
+        <input type="text" name="store_location" required><br><br>
+
+        <label>Day of Week:</label>
+        <input type="text" name="day_of_week" required><br><br>
+
+        <label>Holiday Week (0 or 1):</label>
+        <input type="number" name="holiday_week" required><br><br>
+
+        <label>Promotion Applied (0 or 1):</label>
+        <input type="number" name="promotion_applied" required><br><br>
+
+        <label>Price:</label>
+        <input type="number" name="price" step="0.01" required><br><br>
+
+        <label>Last Week Sales:</label>
+        <input type="number" name="last_week_sales" step="0.01" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
